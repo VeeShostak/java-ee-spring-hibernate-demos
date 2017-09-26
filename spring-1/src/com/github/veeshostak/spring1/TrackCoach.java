@@ -26,5 +26,13 @@ public class TrackCoach implements Coach {
 		return "You'll be fine: " + fortuneService.getFortune();
 	}
 	
+	// init method during beans lifecycle
+	public void doStartup() {
+		System.out.println("TrackCoach: inside doStartup");
+	}
+	// destory method during beans lifecycle
+	public void doCleanup() {
+		System.out.println("TrackCoach: inside doCleanup");
+	}
 
 }
