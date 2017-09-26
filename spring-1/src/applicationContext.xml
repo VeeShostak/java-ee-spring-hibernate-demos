@@ -6,12 +6,15 @@
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!-- load the properties file: sport.properties -->
+    <context:property-placeholder location="classpath:sport.properties"/> 
 
     <!-- Define your beans here -->
     
     <!-- dependency -->
     <bean id = "myFortuneService"
-    		class="com.github.veeshostak.spring1.HappyFortuneService">
+    		class="com.github.veeshostak.spring1.WisdomFortuneService">
     	</bean>
     
     <bean id ="myCoach"
@@ -26,7 +29,10 @@
     		
     		<!-- set up setter injection -->
     		<property name="fortuneService" ref="myFortuneService" />
-    		<!--  name attribute: spring calls setFortuneService -->
+    		<!-- Note: name attribute: spring calls setFortuneService -->
+    		
+    		<property name="emailAddress" value="${foo.email}"/>
+    		<property name="team" value="${foo.team}"/>
     	</bean>
     
     
