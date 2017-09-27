@@ -1,6 +1,7 @@
 package com.github.veeshostak.springAnnotations;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 //@Component("myTennisCoach")
@@ -9,8 +10,10 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	// dependency (helper class)
-	// Field injection using Java Reflection
+	// Field injection using Java Reflection.
+	// Qualifier uses default bean id
 	@Autowired
+	@Qualifier("fileRandomFortuneService")
 	private FortuneService fortuneService;
 	
 	public TennisCoach() {
