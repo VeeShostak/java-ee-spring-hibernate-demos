@@ -11,4 +11,10 @@ public class BasketballCoach implements Coach {
 		return "Practice Dribbling for 45 minutes";
 	}
 
+	@Override
+	public String getDailyFortune() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
