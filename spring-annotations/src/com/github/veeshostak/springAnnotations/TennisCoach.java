@@ -9,14 +9,30 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
 	// dependency (helper class)
+	// Field injection using Java Reflection
+	@Autowired
 	private FortuneService fortuneService;
 	
-	// constructor injection
+	public TennisCoach() {
+		System.out.println("TennisCoach: inside defualt constructor");
+	}
+	
+	/*
+	// constructor injection (searches for class that implements a fortuneService interface)
 	@Autowired
 	public TennisCoach(FortuneService theFortuneService) {
 		fortuneService = theFortuneService;
 	}
+	*/
 	
+	/*
+	// setter injection (searches for class that implements a fortuneService interface)
+	@Autowired
+	public void setFortuneService(FortuneService theFortuneService) {
+		System.out.println("TennisCoach: inside setFortuneService");
+		fortuneService = theFortuneService;
+	}
+	*/
 	@Override
 	public String getDailyWorkout() {
 		
