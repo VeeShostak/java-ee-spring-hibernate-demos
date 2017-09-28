@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 
@@ -16,7 +18,7 @@ public class FileRandomFortuneService implements FortuneService {
 	
 	private Random myRandom = new Random();
 	
-	private ArrayList<String> fortunesList;
+	private List<String> fortunesList;
 	private String fileName = "src/fortunes.txt";
 
 	public FileRandomFortuneService() {
@@ -44,6 +46,14 @@ public class FileRandomFortuneService implements FortuneService {
 		}
 	}
 
+	@PostConstruct
+	public void doCleanup() {
+		fortunesList.forEach(item -> { 
+			System.out.println(item);
+		});
+	}
+	
+		
 	@Override
 	public String getFortune() {
 		// pick a random string from the array

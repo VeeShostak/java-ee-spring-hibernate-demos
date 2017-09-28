@@ -1,12 +1,18 @@
 package com.github.veeshostak.springAnnotations;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 //@Component("myTennisCoach")
 // use default Bean Id
+
 @Component
+@Scope("prototype") // change to singleton for destructor to execute
 public class TennisCoach implements Coach {
 
 	// dependency (helper class)
@@ -36,6 +42,16 @@ public class TennisCoach implements Coach {
 		fortuneService = theFortuneService;
 	}
 	*/
+	@PostConstruct
+	public void doStartup() {
+		System.out.println("inside doStartup");
+	}
+	
+	@PreDestroy
+	public void doCleanup() {
+		System.out.println("inside doCleanup");
+	}
+	
 	@Override
 	public String getDailyWorkout() {
 		
