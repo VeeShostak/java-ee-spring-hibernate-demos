@@ -5,8 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequestMapping("/hello")
 public class HelloWorldController {
 	
 	// show initial html form
@@ -37,6 +39,25 @@ public class HelloWorldController {
 		
 		return "helloworld";
 	}
+	
+	
+		// read form data and
+		// add data to the modal
+		@RequestMapping("/processFormVersionThree")
+		public String makeTextShoutVersionThree(
+				@RequestParam("studentName") String theName, 
+				Model model) {
+			
+			
+			// convert the data to all caps
+			theName = theName.toUpperCase();
+			
+			// create message and add to the modal
+			String result = " the name is " + theName;
+			model.addAttribute("message", result);
+			
+			return "helloworld";
+		}
 	
 	
 }

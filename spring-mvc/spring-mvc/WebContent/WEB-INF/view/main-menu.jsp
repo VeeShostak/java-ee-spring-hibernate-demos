@@ -18,7 +18,7 @@
 <h1>Spring MVC - Home Page</h1>
 <hr>
 
-<p><a href="showForm">Hello World form</a></p>
+<p><a href="hello/showForm">Hello World form</a></p>
 
 
 
